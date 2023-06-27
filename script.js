@@ -7,7 +7,8 @@ const clearBtn = document.querySelector('#clear');
 let toColour = false;
 let rainbowMode = false;
 
-let defaultColor = document.querySelector('#colour').value;
+let colourInput = document.querySelector('#colour');
+let defaultColour = colourInput.value;
 const rainbow = document.querySelector('#rainbow');
 
 //default:
@@ -36,11 +37,10 @@ button50.addEventListener('click', function () {
     gridCount = 50;
     gridSize = 500 / gridCount;
     createGrid(gridCount, gridSize);
-    console.log(grids);
-    grids.forEach(grid => grid.addEventListener('click', paint));
-
 });
 
+
+colourInput.addEventListener('change', colourInputHandler);
 
 //clearing existing grids
 function clearGrids() {
@@ -99,7 +99,7 @@ function paint() {
 
 function colourGrid(e) {
     if (rainbowMode === false)
-        e.target.style.backgroundColor = defaultColor;
+        e.target.style.backgroundColor = defaultColour;
     else {
         e.target.style.backgroundColor = randomColour();
     }
@@ -109,5 +109,9 @@ function randomColour() {
     let h = Math.floor(Math.random() * 360);
     let color = 'hsl(' + h + ', 100%, 50%)';
     return color;
+}
+
+function colourInputHandler(){
+    defaultColour = colourInput.value;
 }
 
