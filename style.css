@@ -1,0 +1,11 @@
+/* each row: 21px
+row count : 16 
+container height & width: 21*16 = 336px
+*/
+
+.container{
+    width: 336px;   
+    height: 336px;
+    background-color: white;
+    border: 3px solid black;
+}
