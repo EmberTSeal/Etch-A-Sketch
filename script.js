@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
 
+//creating grids
 for (let i = 0; i < 16; i++) {
     row = document.createElement('div');
     row.style.height = '20px';
@@ -19,8 +20,14 @@ for (let i = 0; i < 16; i++) {
 }
 
 const grids = document.querySelectorAll('.grid');
-
 let toColour = false;
+grids.forEach( grid => grid.addEventListener( 'click', paint));
+
+const clearBtn = document.querySelector('#clear');
+
+clearBtn.addEventListener('click', () => {
+    grids.forEach(grid => grid.classList.remove('changed'));
+});
 
 function paint(){
     if(toColour === false ){
@@ -37,5 +44,4 @@ function colourGrid(e){
     e.target.classList.add('changed');
 }
 
-grids.forEach( grid => grid.addEventListener( 'click', paint));
 
