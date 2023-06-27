@@ -21,6 +21,8 @@ for (let i = 0; i < 16; i++) {
 
 const grids = document.querySelectorAll('.grid');
 let toColour = false;
+let rainbowMode = false;
+
 grids.forEach( grid => grid.addEventListener( 'click', paint));
 
 const clearBtn = document.querySelector('#clear');
@@ -28,6 +30,11 @@ const clearBtn = document.querySelector('#clear');
 clearBtn.addEventListener('click', () => {
     grids.forEach(grid => grid.classList.remove('changed'));
 });
+
+const rainbow = document.querySelector('#rainbow');
+rainbow.addEventListener('click', function(){
+    rainbowMode = true;
+    });
 
 function paint(){
     if(toColour === false ){
@@ -41,7 +48,16 @@ function paint(){
 }
 
 function colourGrid(e){
-    e.target.classList.add('changed');
+    if(rainbowMode === false)
+        e.target.classList.add('changed');
+    else{
+        e.target.style.backgroundColor = randomColour();
+    }
 }
 
+function randomColour(){
+    let h = Math.floor(Math.random()*360);
+    let color = 'hsl(' + h + ', 100%, 50%)';
+    return color; 
+}
 
