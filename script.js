@@ -2,36 +2,48 @@ const container = document.querySelector('.container');
 const button10 = document.querySelector('#size10');
 const button25 = document.querySelector('#size25');
 const button50 = document.querySelector('#size50');
+const clearBtn = document.querySelector('#clear');
+
+let toColour = false;
+let rainbowMode = false;
+
+let defaultColor = document.querySelector('#colour').value;
+const rainbow = document.querySelector('#rainbow');
 
 //default:
 let gridCount = 10;
 let gridSize = 500 / gridCount;
+let grids;
 createGrid(gridCount, gridSize);
 
-button10.addEventListener('click', function(){
+button10.addEventListener('click', function () {
     clearGrids();
     gridCount = 10;
-    gridSize = 500/gridCount;
+    gridSize = 500 / gridCount;
     createGrid(gridCount, gridSize);
 });
 
-button25.addEventListener('click', function(){
+button25.addEventListener('click', function () {
     clearGrids();
     gridCount = 25;
-    gridSize = 500/gridCount;
+    gridSize = 500 / gridCount;
     createGrid(gridCount, gridSize);
 });
 
 
-button50.addEventListener('click', function(){
+button50.addEventListener('click', function () {
     clearGrids();
     gridCount = 50;
-    gridSize = 500/gridCount;
+    gridSize = 500 / gridCount;
     createGrid(gridCount, gridSize);
+    console.log(grids);
+    grids.forEach(grid => grid.addEventListener('click', paint));
+
 });
 
+
 //clearing existing grids
-function clearGrids(){
+function clearGrids() {
     container.replaceChildren();
 }
 
@@ -54,24 +66,21 @@ function createGrid(gridCount, gridSize) {
         }
         container.appendChild(row);
     }
+    callPaintFn();
 }
-const grids = document.querySelectorAll('.grid');
 
-let toColour = false;
-let rainbowMode = false;
-
-let defaultColor = document.querySelector('#colour').value;
-
-grids.forEach(grid => grid.addEventListener('click', paint));
-
-const clearBtn = document.querySelector('#clear');
+function callPaintFn(){
+    grids = document.querySelectorAll('.grid');
+    rainbow.disabled = false;
+    rainbowMode = false;
+    grids.forEach(grid => grid.addEventListener('click', paint));
+}
 
 clearBtn.addEventListener('click', () => {
     grids.forEach(grid => grid.style.backgroundColor = 'white');
     rainbow.disabled = false;
 });
 
-const rainbow = document.querySelector('#rainbow');
 rainbow.addEventListener('click', function () {
     rainbowMode = true;
     rainbow.disabled = true;
