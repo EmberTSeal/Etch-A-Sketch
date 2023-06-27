@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,19 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <h1>Etch-A-Sketch</h1>
-    <button id="clear">Clear</button>
-    <label for="colour">Colour input</label>
-    <input id="colour" type="color" value="#191970">
-    <button id="rainbow">Rainbow Mode</button>
+    <div class="menu">
+        <button id="size10">10x10</button>
+        <button id="size25">25x25</button>
+        <button id="size50">50x50</button>
+        <button id="clear">Clear</button>
+        <label for="colour">Colour input</label>
+        <input id="colour" type="color" value="#191970">
+        <button id="rainbow">Rainbow Mode</button>
+    </div>
     <div class="container"></div>
 </body>
+
 </html>

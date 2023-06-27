@@ -3,9 +3,22 @@ row count : 16
 container height & width: 21*16 = 336px
 */
 
+body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menu{
+    width: 50vw;
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
 .container{
-    width: 320px;   
-    height: 320px;
+    width: 500px;   
+    height: 500px;
     background-color: white;
     border: 3px solid black;
 }
