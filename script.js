@@ -13,27 +13,31 @@ for (let i = 0; i < 16; i++) {
         div.style.margin = '0';
         div.style.width = '20px';
         div.style.height = '20px';
-        div.style.border = '1px solid rgb(0,0,0, 0.2)';
         row.appendChild(div);
     }
     container.appendChild(row);
 }
 
 const grids = document.querySelectorAll('.grid');
+
 let toColour = false;
 let rainbowMode = false;
+
+let defaultColor = document.querySelector('#colour').value;
 
 grids.forEach( grid => grid.addEventListener( 'click', paint));
 
 const clearBtn = document.querySelector('#clear');
 
 clearBtn.addEventListener('click', () => {
-    grids.forEach(grid => grid.classList.remove('changed'));
+    grids.forEach(grid => grid.style.backgroundColor = 'white');
+    rainbow.disabled = false;
 });
 
 const rainbow = document.querySelector('#rainbow');
 rainbow.addEventListener('click', function(){
     rainbowMode = true;
+    rainbow.disabled = true;
     });
 
 function paint(){
@@ -49,7 +53,7 @@ function paint(){
 
 function colourGrid(e){
     if(rainbowMode === false)
-        e.target.classList.add('changed');
+        e.target.style.backgroundColor = defaultColor;
     else{
         e.target.style.backgroundColor = randomColour();
     }
