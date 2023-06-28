@@ -90,7 +90,7 @@ function callPaintFn(){
 }
 
 clearBtn.addEventListener('click', () => {
-    grids.forEach(grid => grid.style.backgroundColor = 'white');
+    grids.forEach(grid => grid.style.backgroundColor = 'transparent');
     rainbow.disabled = false;
 });
 
