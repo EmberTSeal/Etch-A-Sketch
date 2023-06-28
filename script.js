@@ -61,7 +61,7 @@ function createGrid(gridCount, gridSize) {
             div.style.margin = '0';
             div.style.width = `${gridSize}px`;
             div.style.height = `${gridSize}px`;
-            div.style.border = '0.2px solid rgb(0,0,0, 0.5)';
+            div.style.border = '0.2px solid rgb(0,0,0, 0.2)';
             row.appendChild(div);
         }
         container.appendChild(row);

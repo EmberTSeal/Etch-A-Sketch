@@ -3,22 +3,69 @@ row count : 16
 container height & width: 21*16 = 336px
 */
 
-body{
-    display:flex;
+* {
+    font-family: 'Dosis', sans-serif;
+}
+
+body {
+    background: hsl(251, 55%, 38%);
+    /* fallback for old browsers */
+    background: linear-gradient(to bottom left, hsl(222, 100%, 80%) 50%, hsl(251, 55%, 69%) 50%); 
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.menu{
+h1{
+    background-color: #EDDEA4;
+    padding: 10px 20px;
+    border: double thick #21005e;
+    border-radius: 50px;
+ 
+}
+
+button {
+    padding: 10px 15px;
+    font-size: medium;
+    border-radius: 25px;
+    background-color: #EDDEA4;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+
+input {
+    appearance: none;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+input::-webkit-color-swatch {
+    border-radius: 15px;
+    border: 1px solid black;
+}
+
+input::-moz-color-swatch {
+    border-radius: 15px;
+    border: 1px solid black
+}
+
+
+.menu {
     width: 50vw;
     margin: 20px;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.container{
-    width: 500px;   
+.container {
+    width: 500px;
     height: 500px;
     background-color: white;
-    border: 3px solid black;
+    border: 1px solid black;
 }
