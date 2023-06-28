@@ -12,22 +12,34 @@ let defaultColour = colourInput.value;
 const rainbow = document.querySelector('#rainbow');
 
 //default:
+
+let size;
+if(screen.width > 500){
+    size  = 500;
+}
+else if(screen.width <=500){
+    console.log('here');
+    size = 200;
+    container.style.width = '200px';
+    container.style.height = '200px';
+}
+
 let gridCount = 10;
-let gridSize = 500 / gridCount;
+let gridSize = size / gridCount;
 let grids;
 createGrid(gridCount, gridSize);
 
 button10.addEventListener('click', function () {
     clearGrids();
     gridCount = 10;
-    gridSize = 500 / gridCount;
+    gridSize = size / gridCount;
     createGrid(gridCount, gridSize);
 });
 
 button25.addEventListener('click', function () {
     clearGrids();
     gridCount = 25;
-    gridSize = 500 / gridCount;
+    gridSize = size / gridCount;
     createGrid(gridCount, gridSize);
 });
 
@@ -35,7 +47,7 @@ button25.addEventListener('click', function () {
 button50.addEventListener('click', function () {
     clearGrids();
     gridCount = 50;
-    gridSize = 500 / gridCount;
+    gridSize = size / gridCount;
     createGrid(gridCount, gridSize);
 });
 
