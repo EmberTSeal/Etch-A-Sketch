@@ -73,7 +73,8 @@ function callPaintFn(){
     grids = document.querySelectorAll('.grid');
     rainbow.disabled = false;
     rainbowMode = false;
-    grids.forEach(grid => grid.addEventListener('click', paint));
+    grids.forEach(grid=> grid.addEventListener('click', colourGrid));
+    grids.forEach(grid => grid.addEventListener('dblclick', paint));
 }
 
 clearBtn.addEventListener('click', () => {
@@ -112,6 +113,8 @@ function randomColour() {
 }
 
 function colourInputHandler(){
+    rainbowMode = false;
+    rainbow.disabled = false;
     defaultColour = colourInput.value;
 }
 
