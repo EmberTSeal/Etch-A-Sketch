@@ -70,3 +70,9 @@ input::-moz-color-swatch {
     background-color: white;
     border: 1px solid black;
 }
+
+@media screen and (max-width : 500px){
+    h1{
+        font-size: 20px;
+    }
+}
