@@ -11,6 +11,7 @@ body {
     background: hsl(251, 55%, 38%);
     /* fallback for old browsers */
     background: linear-gradient(to bottom left, hsl(222, 100%, 80%) 50%, hsl(251, 55%, 69%) 50%); 
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
